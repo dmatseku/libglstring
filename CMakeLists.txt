@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.14)
+project(glstring C)
+
+set(CMAKE_C_STANDARD 99)
+
+include_directories(includes)
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Ofast")
+
+add_library (glstring includes/lgs.h init/string_init.c other/other.c
+        string_create/string_create.c t_symbol/symbol_new.c t_symbol/symbol_addend.c
+        t_symbol/symbol_free_lst.c string_create/string_create_image.c string_create/create_symbols_list.c
+        string_create/string_create_vao.c string_create/vao_module.c t_string/string_add.c
+        t_string/string_delete_one.c draw_strings/draw_strings.c)
