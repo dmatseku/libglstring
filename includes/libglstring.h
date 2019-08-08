@@ -1,7 +1,7 @@
 #ifndef GLSTRING_LIBGLSTRING_H
 #define GLSTRING_LIBGLSTRING_H
 
-char	string_create(char* str, float x, float y, int pix_size);
+int	string_create(char* str, float x, float y, int pix_size);
 
 char	string_init(char* const shader_dir, char* font, GLFWwindow* const window);
 
