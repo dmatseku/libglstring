@@ -18,7 +18,7 @@ char	set_vao_vbo_ebo(t_string* string)
 	glEnableVertexAttribArray(0);
 
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
 
 	glBindVertexArray(0);
 

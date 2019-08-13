@@ -1,27 +1,35 @@
 #include <lgs.h>
 
-static	GLfloat*	set_verts(const float x, const float y, const float x1, const float y1)
+static	GLfloat*	set_verts(size_t width, size_t height, GLFWwindow* window)
 {
 	GLfloat *const	res = (GLfloat*)malloc(sizeof(GLfloat) * 16);
+	int				w_width;
+	int 			w_height;
+	glfwGetFramebufferSize(window, &w_width, &w_height);
+
+	float x = -((float)width) / w_width;
+	float y = -((float)height) / w_height;
+	float x1 = ((float)width) / w_width - 2.0f / w_width;
+	float y1 = ((float)height) / w_height - 2.0f / w_height;
 
 	if (!res)
 		return (0);
 	res[0] = x;
 	res[1] = y;
 	res[2] = 0.0f;
-	res[3] = 0.0f;
+	res[3] = 1.0f;
 	res[4] = x;
 	res[5] = y1;
 	res[6] = 0.0f;
-	res[7] = 1.0f;
+	res[7] = 0.0f;
 	res[8] = x1;
 	res[9] = y;
 	res[10] = 1.0f;
-	res[11] = 0.0f;
+	res[11] = 1.0f;
 	res[12] = x1;
 	res[13] = y1;
 	res[14] = 1.0f;
-	res[15] = 1.0f;
+	res[15] = 0.0f;
 	return (res);
 }
 
@@ -32,9 +40,9 @@ static GLuint*	set_indices(void)
 	res[0] = 0;
 	res[1] = 1;
 	res[2] = 2;
-	res[0] = 3;
-	res[0] = 2;
-	res[0] = 1;
+	res[3] = 3;
+	res[4] = 2;
+	res[5] = 1;
 	return (res);
 }
 
@@ -58,12 +66,11 @@ static GLuint	set_texture(unsigned char* image, int width, int height)
 	return	(texture);
 }
 
-t_string*	string_create_vao(float x, float y, unsigned char* image, size_t width, size_t height)
+t_string*	string_create_vao(unsigned char* image, size_t width, size_t height, GLFWwindow* window)
 {
 	t_string *const string = (t_string *const)malloc(sizeof(t_string));
-
 	if (!string
-		|| !(string->verts = set_verts(x, y, x + (2.0f / g_w_width * width), y + (2.0f / g_w_height * height)))
+		|| !(string->verts = set_verts(width, height, window))
 		|| !(string->indices = set_indices()))
 		return (0);
 	string->texture = set_texture(image, width, height);
