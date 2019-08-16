@@ -3,10 +3,8 @@
 
 #include <libmatrix.h>
 #include <GLFW/glfw3.h>
+#include <structs.h>
 
-#ifndef	TYPEDEF_STRUCTS
-typedef struct	s_string t_string;
-#endif
 
 int				string_create(char* str, float x, float y, int pix_size,
 						t_vector color, GLFWwindow* window);

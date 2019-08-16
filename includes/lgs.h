@@ -15,44 +15,9 @@
 #include FT_FREETYPE_H
 #include FT_GLYPH_H
 #include <stdint.h>
+#include <structs.h>
 
 #define STRING_DRAW GL_DYNAMIC_DRAW
-#define TYPEDEF_STRUCTS
-
-typedef struct	s_symbol t_symbol;
-
-typedef struct	s_string t_string;
-
-struct			s_symbol
-{
-	FT_Glyph	glyph;
-	t_symbol*	next;
-	int			pos_x;
-	int			pos_y;
-	size_t		height;
-	size_t		width;
-};
-
-struct			s_string
-{
-	void*(*draw_func)(t_string*, void*);
-	GLuint		shader_program;
-	GLuint		texture;
-	GLfloat*	verts;
-	GLuint*		indices;
-	t_vector	color;
-	float*		view;
-	float*		projection;
-	float*		model;
-	GLuint		vbo;
-	GLuint		ebo;
-	GLuint		vao;
-	size_t		image_width;
-	size_t		image_height;
-	size_t		index;
-	int			pix_size;
-	t_string*	next;
-};
 
 FT_Library			g_ftlibrary;
 
@@ -64,8 +29,6 @@ t_string*			g_string_lst;
 
 
 char*				strjoin(char* str1, char* str2);
-//
-//t_symbol			*symbol_new(size_t pos_x, size_t pos_y, size_t height, size_t width, FT_Glyph glyph);
 
 void				symbol_addend(t_symbol** lst, t_symbol* elem);
 
