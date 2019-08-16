@@ -1,7 +1,12 @@
 #ifndef GLSTRING_LIBGLSTRING_H
 #define GLSTRING_LIBGLSTRING_H
 
+#include <libmatrix.h>
+#include <GLFW/glfw3.h>
+
+#ifndef	TYPEDEF_STRUCTS
 typedef struct	s_string t_string;
+#endif
 
 int				string_create(char* str, float x, float y, int pix_size,
 						t_vector color, GLFWwindow* window);
@@ -24,6 +29,6 @@ void			string_update_vbo_all(int w_width, int w_height);
 
 char			string_update_index(size_t index, char* str, int w_width, int w_height);
 
-char	string_update(t_string* string, char* str, int w_width, int w_height);
+char			string_update(t_string* string, char* str, int w_width, int w_height);
 
 #endif

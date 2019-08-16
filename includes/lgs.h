@@ -17,6 +17,7 @@
 #include <stdint.h>
 
 #define STRING_DRAW GL_DYNAMIC_DRAW
+#define TYPEDEF_STRUCTS
 
 typedef struct	s_symbol t_symbol;
 
