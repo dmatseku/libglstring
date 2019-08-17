@@ -5,8 +5,6 @@ set(CMAKE_C_STANDARD 99)
 
 include_directories(includes)
 
-link_libraries(matrix)
-
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
 
 add_library (glstring includes/lgs.h init/string_init.c other/other.c
