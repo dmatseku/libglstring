@@ -1,7 +1,7 @@
 #ifndef MATRIX_H
 # define MATRIX_H
 
-# include <structs.h>
+# include <libmatrix_structs.h>
 
 void		matrix_add(t_matrix* matrix_1, t_matrix* matrix_2);
 

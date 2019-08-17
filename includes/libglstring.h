@@ -1,9 +1,10 @@
 #ifndef GLSTRING_LIBGLSTRING_H
 #define GLSTRING_LIBGLSTRING_H
 
-#include <libmatrix.h>
-#include <GLFW/glfw3.h>
-#include <structs.h>
+# include <libmatrix.h>
+# include <GLFW/glfw3.h>
+# include <libglstring_structs.h>
+# include <libmatrix_structs.h>
 
 
 int				string_create(char* str, float x, float y, int pix_size,

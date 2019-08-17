@@ -1,7 +1,7 @@
 #ifndef MATRIX_OPERATIONS_MATRIX_H
 # define MATRIX_OPERATIONS_MATRIX_H
 
-# include <structs.h>
+# include <libmatrix_structs.h>
 
 t_matrix*	m_rotate(t_matrix* m, float degree, t_vector rotate);
 

@@ -1,7 +1,6 @@
 #ifndef GLSTRING_LGS_H
 #define GLSTRING_LGS_H
 
-
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <SOIL/SOIL.h>
@@ -15,7 +14,8 @@
 #include FT_FREETYPE_H
 #include FT_GLYPH_H
 #include <stdint.h>
-#include <structs.h>
+#include <libmatrix_structs.h>
+#include <libglstring_structs.h>
 
 #define STRING_DRAW GL_DYNAMIC_DRAW
 

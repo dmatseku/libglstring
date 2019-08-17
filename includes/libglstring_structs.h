@@ -1,33 +1,14 @@
-#ifndef STRUCTS_H
-# define STRUCTS_H
+#ifndef LIBGLSTRING_STRUCTS_H
+#define LIBGLSTRING_STRUCTS_H
 
-# include <stdio.h>
-# include <ft2build.h>
-# include FT_FREETYPE_H
-# include FT_GLYPH_H
+#include <stdio.h>
+#include <ft2build.h>
+#include FT_FREETYPE_H
+#include FT_GLYPH_H
 
 typedef struct	s_string t_string;
 
 typedef struct	s_symbol t_symbol;
-
-typedef struct	s_vector t_vector;
-
-typedef	struct	s_matrix t_matrix;
-
-struct			s_vector
-{
-	float 		x;
-	float		y;
-	float		z;
-	float		w;
-};
-
-struct			s_matrix
-{
-	size_t		i;
-	size_t		j;
-	float 		**mat;
-};
 
 struct			s_symbol
 {
