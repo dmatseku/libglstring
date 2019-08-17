@@ -58,6 +58,7 @@ struct			s_string
 	size_t		index;
 	int			pix_size;
 	t_string*	next;
+	char		active;
 };
 
 #endif

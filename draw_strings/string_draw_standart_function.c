@@ -4,6 +4,8 @@ void*	string_draw_standart_function(t_string* string, void* param)
 {
 	(void)param;
 
+	if (!string->active)
+		return ((void*)0);
 	glBindTexture(GL_TEXTURE_2D, string->texture);
 	glBindVertexArray(string->vao);
 	glUniformMatrix4fv(glGetUniformLocation(g_lgs_string_shader_program, "model"),

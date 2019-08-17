@@ -29,6 +29,7 @@ int	string_create(char* str, float x, float y, int pix_size, t_vector color, GLF
 	string->image_height = height;
 	string->image_width = width;
 	string->pix_size = pix_size;
+	string->active = 1;
 	string_add(&g_string_lst, string);
 	return (string->index);
 }
