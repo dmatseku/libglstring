@@ -59,6 +59,8 @@ struct			s_string
 	int			pix_size;
 	t_string*	next;
 	char		active;
+	float		x;
+	float		y;
 };
 
 #endif

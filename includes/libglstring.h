@@ -29,4 +29,6 @@ char			string_update_index(size_t index, char* str, int w_width, int w_height);
 
 char			string_update(t_string* string, char* str, int w_width, int w_height);
 
+void			string_update_matrix_model(t_string* string, t_matrix* matrix);
+
 #endif

@@ -14,4 +14,4 @@ add_library (glstring includes/lgs.h init/string_init.c other/other.c
         t_string/string_delete_one.c draw_strings/draw_strings.c init/standart_shaders.c
         draw_strings/string_draw_standart_function.c t_string/string_get_elem.c string_update_info/string_update_vbo_all.c
         string_update_info/string_update_vbo_index.c string_update_info/string_update_vbo.c string_update_info/string_update.c
-        string_update_info/string_update_index.c)
+        string_update_info/string_update_index.c string_update_info/string_update_matrix_model.c)
