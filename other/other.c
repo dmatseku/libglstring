@@ -1,6 +1,6 @@
 #include <lgs.h>
 
-char*	strjoin(char* str1, char* str2)
+char*	strjoin(char const *const str1, char const *const str2)
 {
 	char*	res;
 

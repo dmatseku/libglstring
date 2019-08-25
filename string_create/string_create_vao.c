@@ -1,16 +1,18 @@
 #include <lgs.h>
 
-static	GLfloat*	set_verts(size_t width, size_t height, GLFWwindow* window)
+static	GLfloat*	set_verts(const size_t width, const size_t height,
+								GLFWwindow *const restrict window)
 {
-	GLfloat *const	res = (GLfloat*)malloc(sizeof(GLfloat) * 16);
-	int				w_width;
-	int 			w_height;
+	GLfloat *const restrict	res = (GLfloat*)malloc(sizeof(GLfloat) * 16);
+	int						w_width;
+	int 					w_height;
+
 	glfwGetFramebufferSize(window, &w_width, &w_height);
 
-	float x = -((float)width) / w_width;
-	float y = -((float)height) / w_height;
-	float x1 = ((float)width) / w_width - 2.0f / w_width;
-	float y1 = ((float)height) / w_height - 2.0f / w_height;
+	const float				x = -((float)width) / w_width;
+	const float				y = -((float)height) / w_height;
+	const float				x1 = ((float)width) / w_width - 2.0f / w_width;
+	const float				y1 = ((float)height) / w_height - 2.0f / w_height;
 
 	if (!res)
 		return (0);
@@ -35,8 +37,10 @@ static	GLfloat*	set_verts(size_t width, size_t height, GLFWwindow* window)
 
 static GLuint*	set_indices(void)
 {
-	GLuint *const	res = (GLuint*)malloc(sizeof(GLuint) * 6);
+	GLuint *const restrict	res = (GLuint*)malloc(sizeof(GLuint) * 6);
 
+	if (!res)
+		return (0);
 	res[0] = 0;
 	res[1] = 1;
 	res[2] = 2;
@@ -46,10 +50,11 @@ static GLuint*	set_indices(void)
 	return (res);
 }
 
-static GLuint	set_texture(unsigned char* image, int width, int height)
+static GLuint	set_texture(unsigned char const *const restrict image,
+		const int width, const int height)
 {
 	GLuint	texture;
-	float border_color[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+	const float border_color[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
@@ -61,15 +66,17 @@ static GLuint	set_texture(unsigned char* image, int width, int height)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 	glGenerateMipmap(GL_TEXTURE_2D);
-	free(image);
+	free((void*)image);
 	glBindTexture(GL_TEXTURE_2D, 0);
-	return	(texture);
+	return (texture);
 }
 
-t_string*	string_create_vao(unsigned char* image, size_t width, size_t height, GLFWwindow* window)
+t_string*	string_create_vao(unsigned char const *const restrict image, const size_t width,
+		const size_t height, GLFWwindow *const restrict window)
 {
 	t_string *const string = (t_string *const)malloc(sizeof(t_string));
-	if (!string
+
+	if (!image || !string
 		|| !(string->verts = set_verts(width, height, window))
 		|| !(string->indices = set_indices()))
 		return (0);

@@ -1,7 +1,7 @@
 #include <lgs.h>
 #include <vector_var.h>
 
-static inline t_symbol*	set_symbols_on_left(t_symbol* lst, int32_t left)
+static inline t_symbol*	set_symbols_on_left(t_symbol* lst, const int32_t left)
 {
 	while (lst->next)
 	{
@@ -12,23 +12,24 @@ static inline t_symbol*	set_symbols_on_left(t_symbol* lst, int32_t left)
 	return (lst);
 }
 
-static unsigned char*	create_image(t_symbol* lst, size_t *width, size_t *height,
-									  int32_t left)
+static unsigned char*	create_image(t_symbol* lst, size_t *const restrict width,
+							size_t *const restrict height, const int32_t left)
 {
-	t_symbol *const	last = set_symbols_on_left(lst, left);
-	unsigned char*	image;
-	size_t			x;
-	size_t			y;
-	size_t			image_position;
-	unsigned char*	buffer;
-	int				pitch;
-	FT_Pos			ascent = (g_ftface->size->metrics.ascender) >> 6;
+	t_symbol const *const	last = set_symbols_on_left(lst, left);
+	unsigned char *restrict	image;
+	size_t					x;
+	size_t					y;
+	unsigned char const *	buffer;
+	int						pitch;
+	const FT_Pos			ascent = (g_ftface->size->metrics.ascender) >> 6;
 
 	*height = ascent - ((g_ftface->size->metrics.descender) >> 6);
 	*width = last->pos_x + last->width;
+
 	if (!(image = (unsigned char*)malloc(sizeof(unsigned char) * *height * *width * 4)))
 		return (0);
 	memset(image, 0, sizeof(unsigned char) * *height * *width * 4);
+
 	while (lst)
 	{
 		buffer = ((FT_BitmapGlyph)lst->glyph)->bitmap.buffer;
@@ -39,8 +40,8 @@ static unsigned char*	create_image(t_symbol* lst, size_t *width, size_t *height,
 			x = 0;
 			while (x < lst->width)
 			{
-				image_position = (ascent + lst->pos_y + y) * *width * 4 + (lst->pos_x + x) * 4;
-				image[image_position + 3] = buffer[y * (pitch) + x];
+				image[(ascent + lst->pos_y + y) * *width * 4 + (lst->pos_x + x) * 4 + 3]
+						= buffer[y * (pitch) + x];
 				x++;
 			}
 			y++;
@@ -50,8 +51,8 @@ static unsigned char*	create_image(t_symbol* lst, size_t *width, size_t *height,
 	return (image);
 }
 
-unsigned char*			string_create_image(char* const str, const int pix_size,
-									size_t *width, size_t *height)
+unsigned char*			string_create_image(char const * const restrict str, const int pix_size,
+									size_t *const restrict width, size_t *const restrict height)
 {
 	t_symbol*		symbols;
 	unsigned char*	res;

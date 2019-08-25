@@ -1,6 +1,6 @@
 #include <lgs.h>
 
-static void	delete_elem(t_string* elem)
+static void	delete_elem(t_string *const restrict elem)
 {
 	free(elem->verts);
 	free(elem->indices);
@@ -15,10 +15,10 @@ static void	delete_elem(t_string* elem)
 	free(elem);
 }
 
-void	string_delete_one(size_t index)
+void	string_delete_one(const size_t index)
 {
-	t_string* tmp;
-	t_string* tmp1;
+	t_string*		 tmp;
+	t_string const * tmp1;
 
 	tmp = g_string_lst;
 	if (tmp->index == index)

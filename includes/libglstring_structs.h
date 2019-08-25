@@ -22,7 +22,7 @@ struct			s_symbol
 
 struct			s_string
 {
-	void*		(*draw_func)(t_string*, void*);
+	void*		(*draw_func)(const t_string*, void*);
 	GLuint		shader_program;
 	GLuint		texture;
 	GLfloat*	verts;

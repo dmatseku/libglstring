@@ -1,6 +1,6 @@
 #include <lgs.h>
 
-void	symbol_addend(t_symbol** const lst, t_symbol* const elem)
+void	symbol_addend(t_symbol* *const lst, t_symbol* const elem)
 {
 	t_symbol* tmp;
 

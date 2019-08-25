@@ -1,6 +1,6 @@
 #include <lgs.h>
 
-void*	string_draw_standart_function(t_string* string, void* param)
+void*	string_draw_standart_function(t_string const *const restrict string, void *const restrict param)
 {
 	(void)param;
 

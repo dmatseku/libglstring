@@ -1,6 +1,6 @@
 #include <lgs.h>
 
-void	string_add(t_string** lst, t_string* elem)
+void	string_add(t_string* *const lst, t_string *const elem)
 {
 	t_string* tmp;
 	t_string* tmp1;

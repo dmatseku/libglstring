@@ -50,7 +50,7 @@ static char	create_shader_program(void)
 	return (1);
 }
 
-char	string_init(char* font)
+char	string_init(char const *const restrict font)
 {
 	g_string_lst = 0;
 	g_ftface = 0;

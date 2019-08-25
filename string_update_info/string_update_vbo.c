@@ -1,11 +1,12 @@
 #include <lgs.h>
 
-void	string_update_vbo(t_string* string, int w_width, int w_height)
+void	string_update_vbo(t_string const *const restrict string,
+							const int w_width, const int w_height)
 {
-	float x = -((float)string->image_width) / w_width;
-	float y = -((float)string->image_height) / w_height;
-	float x1 = ((float)string->image_width) / w_width - 2.0f / w_width;
-	float y1 = ((float)string->image_height) / w_height - 2.0f / w_height;
+	const float x = -((float)string->image_width) / w_width;
+	const float y = -((float)string->image_height) / w_height;
+	const float x1 = ((float)string->image_width) / w_width - 2.0f / w_width;
+	const float y1 = ((float)string->image_height) / w_height - 2.0f / w_height;
 
 	string->verts[0] = x;
 	string->verts[1] = y;

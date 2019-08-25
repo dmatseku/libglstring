@@ -35,7 +35,8 @@ static t_symbol*	create_symbol(int32_t pos_x, FT_Int left, FT_Int top,
 	return (res);
 }
 
-t_symbol*			create_symbols_list(char* str, size_t str_len, int32_t* left)
+t_symbol*			create_symbols_list(char const *const restrict str, const size_t str_len,
+										int32_t *const restrict left)
 {
 	t_symbol*		lst;
 	t_symbol*		tmp;

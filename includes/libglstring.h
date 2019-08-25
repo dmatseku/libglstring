@@ -7,27 +7,27 @@
 # include <libmatrix_structs.h>
 
 
-int				string_create(char* str, float x, float y, int pix_size,
-						t_vector color, GLFWwindow* window);
+int				string_create(char const * str, float x, float y, int pix_size,
+						 t_vector color, GLFWwindow* window);
 
-char			string_init(char* font);
+char			string_init(char const * font);
 
 void			string_delete_one(size_t index);
 
 void			string_draw(void);
 
-unsigned char*	string_create_image(char* str, int pix_size, size_t *width, size_t *height);
+unsigned char*	string_create_image(char const * str, int pix_size, size_t *width, size_t *height);
 
 t_string*		string_get_elem(size_t index);
 
-void			string_update_vbo(t_string* string, int w_width, int w_height);
+void			string_update_vbo(t_string const * string, int w_width, int w_height);
 
 void			string_update_vbo_index(size_t index, int w_width, int w_height);
 
 void			string_update_vbo_all(int w_width, int w_height);
 
-char			string_update_index(size_t index, char* str, int w_width, int w_height);
+char			string_update_index(size_t index, char const * str, int w_width, int w_height);
 
-char			string_update(t_string* string, char* str, int w_width, int w_height);
+char			string_update(t_string* string, char const * str, int w_width, int w_height);
 
 #endif

@@ -3,9 +3,9 @@
 t_symbol *symbol_new(const size_t pos_x, const size_t pos_y,
 		const size_t height, const size_t width, FT_Glyph glyph)
 {
-	t_symbol* res;
+	t_symbol *const restrict	res = (t_symbol*)malloc(sizeof(t_symbol));
 
-	if (!(res = (t_symbol*)malloc(sizeof(t_symbol))))
+	if (!res)
 		return (0);
 	res->next = 0;
 	res->glyph = glyph;

@@ -1,14 +1,14 @@
 #include <lgs.h>
 
-void	string_update_vbo_all(int w_width, int w_height)
+void	string_update_vbo_all(const int w_width, const int w_height)
 {
 	t_string*	elem;
-	float x;
-	float y;
-	float x1;
-	float y1;
-	elem = g_string_lst;
+	float		x;
+	float		y;
+	float		x1;
+	float		y1;
 
+	elem = g_string_lst;
 	while (elem)
 	{
 		x = -((float)elem->image_width) / w_width;

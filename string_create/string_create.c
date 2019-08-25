@@ -2,9 +2,9 @@
 #include <operations_matrix.h>
 #include <vector_var.h>
 
-static float*	cpy(float* matrix)
+static float*	cpy(float const *const restrict matrix)
 {
-	float* res = (float*)malloc(sizeof(float) * 16);
+	float *const restrict res = (float*)malloc(sizeof(float) * 16);
 
 	if (!res)
 		return (0);
@@ -12,17 +12,16 @@ static float*	cpy(float* matrix)
 	return (res);
 }
 
-int		string_create(char* str, float x, float y, int pix_size, t_vector color, GLFWwindow* window)
+int		string_create(char const *const restrict str, const float x, const float y,
+		const int pix_size, const t_vector color, GLFWwindow *const restrict window)
 {
-	size_t					width;
-	size_t					height;
-	t_string*				string;
-	t_matrix*				matrix;
-	unsigned char *const	image = string_create_image(str, pix_size, &width, &height);
+	size_t								width;
+	size_t								height;
+	unsigned char const *const restrict	image = string_create_image(str, pix_size, &width, &height);
+	t_string *const restrict			string = string_create_vao(image, width, height, window);
+	t_matrix *const restrict			matrix = m_translate_new(vector_var_create(x, y, 0.0f, 1.0f));
 
-	if (!image || !(string = string_create_vao(image, width, height, window)))
-		return (-1);
-	if (!(matrix = m_translate_new(vector_var_create(x, y, 0.0f, 1.0f))))
+	if (!string || !matrix)
 		return (-1);
 	string->translate = matrix->mat;
 	free(matrix);
