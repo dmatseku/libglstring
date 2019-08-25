@@ -8,7 +8,9 @@ static void	delete_elem(t_string* elem)
 	glDeleteBuffers(1, &elem->vbo);
 	glDeleteBuffers(1, &elem->ebo);
 	free(elem->view);
-	free(elem->model);
+	free(elem->translate);
+	free(elem->rotate);
+	free(elem->scale);
 	free(elem->projection);
 	free(elem);
 }

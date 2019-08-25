@@ -15,7 +15,7 @@ typedef	struct	s_matrix
 {
 	size_t		i;
 	size_t		j;
-	float 		**mat;
+	float 		*mat;
 }				t_matrix;
 
 #endif

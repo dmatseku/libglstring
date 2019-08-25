@@ -8,8 +8,12 @@ void*	string_draw_standart_function(t_string* string, void* param)
 		return ((void*)0);
 	glBindTexture(GL_TEXTURE_2D, string->texture);
 	glBindVertexArray(string->vao);
-	glUniformMatrix4fv(glGetUniformLocation(g_lgs_string_shader_program, "model"),
-					   1, GL_FALSE, string->model);
+	glUniformMatrix4fv(glGetUniformLocation(g_lgs_string_shader_program, "scale"),
+					   1, GL_FALSE, string->scale);
+	glUniformMatrix4fv(glGetUniformLocation(g_lgs_string_shader_program, "rotate"),
+					   1, GL_FALSE, string->rotate);
+	glUniformMatrix4fv(glGetUniformLocation(g_lgs_string_shader_program, "translate"),
+					   1, GL_FALSE, string->translate);
 	glUniformMatrix4fv(glGetUniformLocation(g_lgs_string_shader_program, "view"),
 					   1, GL_FALSE, string->view);
 	glUniformMatrix4fv(glGetUniformLocation(g_lgs_string_shader_program, "projection"),

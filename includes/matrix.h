@@ -29,6 +29,4 @@ t_matrix*	matrix_sub_new(t_matrix* matrix_1, t_matrix* matrix_2);
 
 void		matrix_subscalar(t_matrix* matrix, float scalar);
 
-float*		matrix_to_array(t_matrix* matrix);
-
 #endif

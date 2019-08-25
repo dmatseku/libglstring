@@ -2,7 +2,17 @@
 #include <operations_matrix.h>
 #include <vector_var.h>
 
-int	string_create(char* str, float x, float y, int pix_size, t_vector color, GLFWwindow* window)
+static float*	cpy(float* matrix)
+{
+	float* res = (float*)malloc(sizeof(float) * 16);
+
+	if (!res)
+		return (0);
+	memcpy(res, matrix, 16 * sizeof(float));
+	return (res);
+}
+
+int		string_create(char* str, float x, float y, int pix_size, t_vector color, GLFWwindow* window)
 {
 	size_t					width;
 	size_t					height;
@@ -14,14 +24,16 @@ int	string_create(char* str, float x, float y, int pix_size, t_vector color, GLF
 		return (-1);
 	if (!(matrix = m_translate_new(vector_var_create(x, y, 0.0f, 1.0f))))
 		return (-1);
-	string->model = matrix_to_array(matrix);
-	matrix_free(matrix);
-	if (!(matrix = matrix_create(4, 4)))
-		return (-1);
-	string->projection = matrix_to_array(matrix);
-	string->view = matrix_to_array(matrix);
-	matrix_free(matrix);
-	if (!string->projection || !string->model || !string->view)
+	string->translate = matrix->mat;
+	free(matrix);
+	string->rotate = cpy(string->scale);
+	string->rotate[12] = 0;
+	string->rotate[13] = 0;
+	string->scale = cpy(string->rotate);
+	string->projection = cpy(string->rotate);
+	string->view = cpy(string->rotate);
+	if (!string->projection || !string->scale || !string->translate
+			|| !string->rotate || !string->view)
 		return (-1);
 	string->color = color;
 	string->shader_program = g_lgs_string_shader_program;

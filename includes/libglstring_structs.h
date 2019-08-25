@@ -30,7 +30,9 @@ struct			s_string
 	t_vector	color;
 	float*		view;
 	float*		projection;
-	float*		model;
+	float*		scale;
+	float*		rotate;
+	float*		translate;
 	GLuint		vbo;
 	GLuint		ebo;
 	GLuint		vao;
