@@ -35,8 +35,7 @@ static t_symbol*	create_symbol(int32_t pos_x, FT_Int left, FT_Int top,
 	return (res);
 }
 
-t_symbol*			create_symbols_list(char* str, size_t str_len, int32_t* left,
-													int32_t* top, int32_t* bottom)
+t_symbol*			create_symbols_list(char* str, size_t str_len, int32_t* left)
 {
 	t_symbol*		lst;
 	t_symbol*		tmp;
@@ -47,8 +46,6 @@ t_symbol*			create_symbols_list(char* str, size_t str_len, int32_t* left,
 	char			prev_char;
 
 	*left = INT32_MAX;
-	*top = INT32_MAX;
-	*bottom = INT32_MIN;
 	i = 0;
 	prev_char = 0;
 	pos_x = 0;
@@ -68,9 +65,6 @@ t_symbol*			create_symbols_list(char* str, size_t str_len, int32_t* left,
 		symbol_addend(&lst, tmp);
 		pos_x += (glyph->advance.x >> 10);
 		*left = (*left > tmp->pos_x ? tmp->pos_x : *left);
-		*top = (*top > tmp->pos_y ? tmp->pos_y : *top);
-		*bottom = (*bottom > (int32_t)(tmp->pos_y + tmp->height) ?
-					*bottom : tmp->pos_y + tmp->height);
 		i++;
 	}
 	return (lst);

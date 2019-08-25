@@ -34,8 +34,7 @@ void				symbol_addend(t_symbol** lst, t_symbol* elem);
 
 void				symbol_free_list(t_symbol* lst);
 
-t_symbol*			create_symbols_list(char* str, size_t str_len, int32_t* left,
-										 int32_t* top, int32_t* bottom);
+t_symbol*			create_symbols_list(char* str, size_t str_len, int32_t* left);
 
 unsigned char*		string_create_image(char* str, int pix_size, size_t *width, size_t *height);
 

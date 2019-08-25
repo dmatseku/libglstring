@@ -26,7 +26,7 @@ int		string_create(char* str, float x, float y, int pix_size, t_vector color, GL
 		return (-1);
 	string->translate = matrix->mat;
 	free(matrix);
-	string->rotate = cpy(string->scale);
+	string->rotate = cpy(string->translate);
 	string->rotate[12] = 0;
 	string->rotate[13] = 0;
 	string->scale = cpy(string->rotate);
