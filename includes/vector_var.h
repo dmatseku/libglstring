@@ -1,12 +1,12 @@
 #ifndef VECTOR_VAR_H
 # define VECTOR_VAR_H
 
+# include <math.h>
+# include <libmatrix_structs.h>
+
 # define vec4(x, y, z, w) (t_vector){x, y, z, w}
 # define vec3(x, y, z) (t_vector){x, y, z, 1.0f}
 # define vec2(x, y) (t_vector){x, y, 1.0f, 1.0f}
-
-# include <math.h>
-# include <libmatrix_structs.h>
 
 
 t_vector	vector_var_create(float x, float y, float z, float w);
