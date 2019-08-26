@@ -3,7 +3,6 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <SOIL/SOIL.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,7 +35,13 @@ void				symbol_free_list(t_symbol* lst);
 
 t_symbol*			create_symbols_list(char const * str, size_t str_len, int32_t* left);
 
+t_symbol*			create_symbols_list_nospace(char const * str, size_t str_len, int32_t * left,
+												 int32_t* top, int32_t* bottom);
+
 unsigned char*		string_create_image(char const * str, int pix_size, size_t *width, size_t *height);
+
+unsigned char*		string_create_image_nospace(char const * str, int pix_size,
+													  size_t* width, size_t* height);
 
 char				set_vao_vbo_ebo(t_string* string);
 

@@ -8,7 +8,10 @@
 
 
 int				string_create(char const * str, float x, float y, int pix_size,
-						 t_vector color, GLFWwindow* window);
+						 			t_vector color, GLFWwindow* window);
+
+int				string_create_nospace(char const * str, float x, float y, int pix_size,
+									t_vector color, GLFWwindow* window);
 
 char			string_init(char const * font);
 
@@ -17,6 +20,9 @@ void			string_delete_one(size_t index);
 void			string_draw(void);
 
 unsigned char*	string_create_image(char const * str, int pix_size, size_t *width, size_t *height);
+
+unsigned char*			string_create_image_nospace(char const * str, int pix_size,
+													size_t* width, size_t* height);
 
 t_string*		string_get_elem(size_t index);
 
