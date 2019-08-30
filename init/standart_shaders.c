@@ -3,7 +3,7 @@
 GLchar const *const	get_standart_vertix_shader(void)
 {
 	return ((GLchar const *const)
-	"#version 450 core\n"
+	"#version 410 core\n"
 	"\n"
 	"layout (location = 0) in vec2   position;\n"
 	"\n"
@@ -31,7 +31,7 @@ GLchar const *const	get_standart_vertix_shader(void)
 GLchar const *const	get_standart_fragment_shader(void)
 {
 	return ((GLchar const *const)
-	"#version 450 core\n"
+	"#version 410 core\n"
 	"\n"
 	"in  vec2            texture_coords;\n"
 	"\n"
