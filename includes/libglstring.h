@@ -34,6 +34,12 @@ void			string_update_vbo_all(int w_width, int w_height);
 
 char			string_update_index(size_t index, char const * str, int w_width, int w_height);
 
+char			string_update_index_nospace(const size_t index, char const *const restrict str,
+									const int w_width, const int w_height);
+
 char			string_update(t_string* string, char const * str, int w_width, int w_height);
+
+char			string_update_nospace(t_string *const restrict string, char const *const restrict str,
+							  const int w_width, const int w_height);
 
 #endif
