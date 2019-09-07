@@ -11,10 +11,10 @@ void	string_update_vbo_all(const int w_width, const int w_height)
 	elem = g_string_lst;
 	while (elem)
 	{
-		x = -((float)elem->image_width) / w_width;
-		y = -((float)elem->image_height) / w_height;
-		x1 = ((float)elem->image_width) / w_width - 2.0f / w_width;
-		y1 = ((float)elem->image_height) / w_height - 2.0f / w_height;
+		x = -((float)elem->image_width - 1) / (float)w_width + 2.0f / (float)w_width / 4;
+		y = -((float)elem->image_height - 1) / (float)w_height + 2.0f / (float)w_height / 4;
+		x1 = ((float)elem->image_width + 1) / (float)w_width - 2.0f / (float)w_width / 4;
+		y1 = ((float)elem->image_height + 1) / (float)w_height - 2.0f / (float)w_height / 4;
 
 		elem->verts[0] = x;
 		elem->verts[1] = y;

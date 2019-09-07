@@ -9,10 +9,10 @@ static	GLfloat*	set_verts(const size_t width, const size_t height,
 
 	glfwGetFramebufferSize(window, &w_width, &w_height);
 
-	const float				x = -((float)width) / w_width;
-	const float				y = -((float)height) / w_height;
-	const float				x1 = ((float)width) / w_width - 2.0f / w_width;
-	const float				y1 = ((float)height) / w_height - 2.0f / w_height;
+	const float				x = -((float)width - 1) / (float)w_width + 2.0f / (float)w_width / 4;
+	const float				y = -((float)height - 1) / (float)w_height + 2.0f / (float)w_height / 4;
+	const float				x1 = ((float)width + 1) / (float)w_width - 2.0f / (float)w_width / 4;
+	const float				y1 = ((float)height + 1) / (float)w_height - 2.0f / (float)w_height / 4;
 
 	if (!res)
 		return (0);

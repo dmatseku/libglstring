@@ -7,11 +7,7 @@ static void	delete_elem(t_string *const restrict elem)
 	glDeleteVertexArrays(1, &elem->vao);
 	glDeleteBuffers(1, &elem->vbo);
 	glDeleteBuffers(1, &elem->ebo);
-	free(elem->view);
-	free(elem->translate);
-	free(elem->rotate);
-	free(elem->scale);
-	free(elem->projection);
+	glDeleteTextures(1, &elem->texture);
 	free(elem);
 }
 

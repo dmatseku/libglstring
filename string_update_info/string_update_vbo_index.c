@@ -3,10 +3,10 @@
 void	string_update_vbo_index(const size_t index, const int w_width, const int w_height)
 {
 	t_string const *const restrict	elem = string_get_elem(index);
-	const float 					x = -((float)elem->image_width) / w_width;
-	const float 					y = -((float)elem->image_height) / w_height;
-	const float 					x1 = ((float)elem->image_width) / w_width - 2.0f / w_width;
-	const float 					y1 = ((float)elem->image_height) / w_height - 2.0f / w_height;
+	const float						x = -((float)elem->image_width - 1) / (float)w_width + 2.0f / (float)w_width / 4;
+	const float						y = -((float)elem->image_height - 1) / (float)w_height + 2.0f / (float)w_height / 4;
+	const float						x1 = ((float)elem->image_width + 1) / (float)w_width - 2.0f / (float)w_width / 4;
+	const float						y1 = ((float)elem->image_height + 1) / (float)w_height - 2.0f / (float)w_height / 4;
 
 	elem->verts[0] = x;
 	elem->verts[1] = y;

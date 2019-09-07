@@ -9,21 +9,13 @@ GLchar const *const	get_standart_vertix_shader(void)
 	"\n"
 	"layout (location = 1) in vec2   tex;\n"
 	"\n"
-	"uniform mat4                    scale;\n"
-	"\n"
-	"uniform mat4                    rotate;\n"
-	"\n"
-	"uniform mat4                    translate;\n"
-	"\n"
-	"uniform mat4                    projection;\n"
-	"\n"
-	"uniform mat4                    view;\n"
+	"uniform vec3					 model;"
 	"\n"
 	"out vec2                        texture_coords;\n"
 	"\n"
 	"void main()\n"
 	"{\n"
-	"    gl_Position = projection * view * translate * rotate * scale * vec4(position, 0.0f, 1.0f);\n"
+	"    gl_Position = vec4(position.xy + model.xy, model.z, 1.0f);\n"
 	"    texture_coords = tex;\n"
 	"}");
 }
@@ -44,7 +36,6 @@ GLchar const *const	get_standart_fragment_shader(void)
 	"void main()\n"
 	"{\n"
 	"    vec4 sampled_color = texture(Texture, texture_coords);\n"
-	"    color = vec4(sampled_color.x + user_color.x, sampled_color.y + user_color.y,\n"
-	"                 sampled_color.z + user_color.z, sampled_color.w * user_color.w);\n"
+	"    color = vec4(sampled_color.xyz + user_color.xyz, sampled_color.w * user_color.w);\n"
 	"}");
 }

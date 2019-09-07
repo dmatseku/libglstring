@@ -7,10 +7,10 @@
 # include <libmatrix_structs.h>
 
 
-int				string_create(char const * str, float x, float y, int pix_size,
+int				string_create(char const * str, t_vector position, int pix_size,
 						 			t_vector color, GLFWwindow* window);
 
-int				string_create_nospace(char const * str, float x, float y, int pix_size,
+int				string_create_nospace(char const * str, t_vector position, int pix_size,
 									t_vector color, GLFWwindow* window);
 
 char			string_init(char const * font);

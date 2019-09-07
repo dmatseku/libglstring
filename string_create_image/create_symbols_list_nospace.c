@@ -64,7 +64,7 @@ t_symbol*			create_symbols_list_nospace(char const *const restrict str,
 		prev_char = str[i];
 		bglyph = (FT_BitmapGlyph)glyph;
 		if (!(tmp = create_symbol(pos_x, bglyph->left, bglyph->top,
-								  bglyph->bitmap.rows, bglyph->bitmap.width, glyph)))
+						  bglyph->bitmap.rows, bglyph->bitmap.width, glyph)))
 			return (0);
 		symbol_addend(&lst, tmp);
 		pos_x += (glyph->advance.x >> 10);

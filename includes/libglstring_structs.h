@@ -28,11 +28,7 @@ struct			s_string
 	GLfloat*	verts;
 	GLuint*		indices;
 	t_vector	color;
-	float*		view;
-	float*		projection;
-	float*		scale;
-	float*		rotate;
-	float*		translate;
+	t_vector	position;
 	GLuint		vbo;
 	GLuint		ebo;
 	GLuint		vao;
@@ -42,8 +38,6 @@ struct			s_string
 	int			pix_size;
 	t_string*	next;
 	char		active;
-	float		x;
-	float		y;
 };
 
 #endif
