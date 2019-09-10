@@ -23,6 +23,8 @@ void		matrix_multscalar(t_matrix* matrix, float scalar);
 
 void		matrix_print(t_matrix const * matrix);
 
+void		matrix_set_unit(t_matrix const * matrix);
+
 void		matrix_sub(t_matrix* matrix_1, t_matrix const * matrix_2);
 
 t_matrix*	matrix_sub_new(t_matrix const * matrix_1, t_matrix const * matrix_2);
