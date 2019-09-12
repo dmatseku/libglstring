@@ -3,7 +3,7 @@ project(glstring C)
 
 set(CMAKE_C_STANDARD 99)
 
-include_directories(includes)
+include_directories(includes ../libmatrix/includes)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Ofast")
 

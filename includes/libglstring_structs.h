@@ -5,6 +5,7 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include FT_GLYPH_H
+#include <vector.h>
 
 typedef struct	s_string t_string;
 
@@ -27,8 +28,8 @@ struct			s_string
 	GLuint		texture;
 	GLfloat*	verts;
 	GLuint*		indices;
-	t_vector	color;
-	t_vector	position;
+	t_vec4		color;
+	t_vec4		position;
 	GLuint		vbo;
 	GLuint		ebo;
 	GLuint		vao;

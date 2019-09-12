@@ -4,7 +4,6 @@
 # include <libmatrix.h>
 # include <GLFW/glfw3.h>
 # include <libglstring_structs.h>
-# include <libmatrix_structs.h>
 
 
 int				string_create(char const * str, t_vector position, int pix_size,

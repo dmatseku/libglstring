@@ -1,5 +1,4 @@
 #include <lgs.h>
-#include <vector_var.h>
 
 static inline t_symbol*	set_symbols_on_left(t_symbol* lst, const int32_t left)
 {

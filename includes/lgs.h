@@ -7,13 +7,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <fcntl.h>
-#include <rwfile.h>
-#include <matrix.h>
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include FT_GLYPH_H
 #include <stdint.h>
-#include <libmatrix_structs.h>
 #include <libglstring_structs.h>
 
 #define STRING_DRAW GL_DYNAMIC_DRAW

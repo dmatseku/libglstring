@@ -1,6 +1,5 @@
 #include <lgs.h>
-#include <operations_matrix.h>
-#include <vector_var.h>
+#include <vector.h>
 
 static float*	cpy(float const *const restrict matrix)
 {
@@ -12,8 +11,8 @@ static float*	cpy(float const *const restrict matrix)
 	return (res);
 }
 
-int		string_create(char const *const restrict str, const t_vector position,
-		const int pix_size, const t_vector color, GLFWwindow *const restrict window)
+int		string_create(char const *const restrict str, const t_vec4 position,
+		const int pix_size, const t_vec4 color, GLFWwindow *const restrict window)
 {
 	size_t								width;
 	size_t								height;
