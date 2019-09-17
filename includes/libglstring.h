@@ -7,10 +7,10 @@
 # include <libmatrix_structs.h>
 
 
-int				string_create(char const * str, t_vec4 position, int pix_size,
+int				string_create(char const * str, t_vec3 position, int pix_size,
 						 			t_vec4 color, GLFWwindow* window);
 
-int				string_create_nospace(char const * str, t_vec4 position, int pix_size,
+int				string_create_nospace(char const * str, t_vec3 position, int pix_size,
 									t_vec4 color, GLFWwindow* window);
 
 char			string_init(char const * font);
@@ -19,10 +19,10 @@ void			string_delete_one(size_t index);
 
 void			string_draw(void);
 
-unsigned char*	string_create_image(char const * str, int pix_size, size_t *width, size_t *height);
+unsigned char*	string_create_image(char const * str, int pix_size, int* width, int* height);
 
-unsigned char*			string_create_image_nospace(char const * str, int pix_size,
-													size_t* width, size_t* height);
+unsigned char*	string_create_image_nospace(char const * str, int pix_size,
+													int* width, int* height);
 
 t_string*		string_get_elem(size_t index);
 

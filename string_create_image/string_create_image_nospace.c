@@ -11,8 +11,8 @@ static inline t_symbol*	set_symbols_on_left(t_symbol* lst, const int32_t left)
 	return (lst);
 }
 
-static unsigned char*	create_image(t_symbol* lst, size_t *const restrict width,
-									  size_t *const restrict height, const int32_t left,
+static unsigned char*	create_image(t_symbol* lst, int *const restrict width,
+									  int *const restrict height, const int32_t left,
 									  const int32_t top, const int32_t bottom)
 {
 	t_symbol const *const	last = set_symbols_on_left(lst, left);
@@ -51,7 +51,7 @@ static unsigned char*	create_image(t_symbol* lst, size_t *const restrict width,
 }
 
 unsigned char*			string_create_image_nospace(char const * const restrict str,
-		const int pix_size, size_t *const restrict width, size_t *const restrict height)
+		const int pix_size, int *const restrict width, int *const restrict height)
 {
 	t_symbol*		symbols;
 	unsigned char*	res;

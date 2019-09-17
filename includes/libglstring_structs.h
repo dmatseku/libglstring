@@ -29,12 +29,12 @@ struct			s_string
 	GLfloat*	verts;
 	GLuint*		indices;
 	t_vec4		color;
-	t_vec4		position;
+	t_vec3		position;
 	GLuint		vbo;
 	GLuint		ebo;
 	GLuint		vao;
-	size_t		image_width;
-	size_t		image_height;
+	int			image_width;
+	int			image_height;
 	size_t		index;
 	int			pix_size;
 	t_string*	next;

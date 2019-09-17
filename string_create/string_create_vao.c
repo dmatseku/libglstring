@@ -1,35 +1,51 @@
 #include <lgs.h>
+#include <libmatrix.h>
 
-static	GLfloat*	set_verts(const size_t width, const size_t height,
+static	GLfloat*	set_verts(const int width, const int height,
 								GLFWwindow *const restrict window)
 {
 	GLfloat *const restrict	res = (GLfloat*)malloc(sizeof(GLfloat) * 16);
 	int						w_width;
 	int 					w_height;
-
+	t_vec4					left_top;
+	t_vec4					left_bottom;
+	t_vec4					right_top;
+	t_vec4					right_bottom;
+	t_mat4					proj;
 	glfwGetFramebufferSize(window, &w_width, &w_height);
-
-	const float				x = -((float)width - 1) / (float)w_width + 2.0f / (float)w_width / 4;
-	const float				y = -((float)height - 1) / (float)w_height + 2.0f / (float)w_height / 4;
-	const float				x1 = ((float)width + 1) / (float)w_width - 2.0f / (float)w_width / 4;
-	const float				y1 = ((float)height + 1) / (float)w_height - 2.0f / (float)w_height / 4;
 
 	if (!res)
 		return (0);
-	res[0] = x;
-	res[1] = y;
+
+	proj = mat4_orthographic(-(w_width / 2), w_width / 2 + w_width % 2, -(w_height / 2),
+			w_height / 2 + w_height % 2, 0.001f, 100.0f);
+
+	left_top = mat_vec_4_mult(proj, vec4
+	(-(width / 2), height / 2 + height % 2, 1.0f, 1.0f));
+
+	left_bottom = mat_vec_4_mult(proj, vec4
+	(-(width / 2), -(height / 2), 1.0f, 1.0f));
+
+	right_top = mat_vec_4_mult(proj, vec4
+	(width / 2 + width % 2, height / 2 + height % 2, 1.0f, 1.0f));
+
+	right_bottom = mat_vec_4_mult(proj, vec4
+	(width / 2 + width % 2, -(height / 2), 1.0f, 1.0f));
+
+	res[0] = left_bottom.x;
+	res[1] = left_bottom.y;
 	res[2] = 0.0f;
 	res[3] = 1.0f;
-	res[4] = x;
-	res[5] = y1;
+	res[4] = left_top.x;
+	res[5] = left_top.y;
 	res[6] = 0.0f;
 	res[7] = 0.0f;
-	res[8] = x1;
-	res[9] = y;
+	res[8] = right_bottom.x;
+	res[9] = right_bottom.y;
 	res[10] = 1.0f;
 	res[11] = 1.0f;
-	res[12] = x1;
-	res[13] = y1;
+	res[12] = right_top.x;
+	res[13] = right_top.y;
 	res[14] = 1.0f;
 	res[15] = 0.0f;
 	return (res);
@@ -71,8 +87,8 @@ static GLuint	set_texture(unsigned char const *const restrict image,
 	return (texture);
 }
 
-t_string*	string_create_vao(unsigned char const *const restrict image, const size_t width,
-		const size_t height, GLFWwindow *const restrict window)
+t_string*	string_create_vao(unsigned char const *const restrict image, const int width,
+		const int height, GLFWwindow *const restrict window)
 {
 	t_string *const string = (t_string *const)malloc(sizeof(t_string));
 

@@ -11,11 +11,11 @@ static float*	cpy(float const *const restrict matrix)
 	return (res);
 }
 
-int		string_create_nospace(char const *const restrict str, const t_vec4 position,
+int		string_create_nospace(char const *const restrict str, const t_vec3 position,
 		const int pix_size, const t_vec4 color, GLFWwindow *const restrict window)
 {
-	size_t								width;
-	size_t								height;
+	int									width;
+	int									height;
 	unsigned char const *const restrict	image = string_create_image_nospace(str, pix_size, &width, &height);
 	t_string *const restrict			string = string_create_vao(image, width, height, window);
 
